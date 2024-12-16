@@ -1,0 +1,374 @@
+/* 基础样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffeee4;
+    color: #4a3f3f;
+}
+
+/* 头部样式 */
+header {
+    background-color: rgba(255, 245, 238, 0.92);
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(205, 155, 155, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+}
+
+/* 搜索栏样式 */
+#search-bar {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 228, 225, 0.3);
+    color: #4a3f3f;
+}
+
+/* 卡片样式 */
+#cocktail-list .card {
+    background-color: #fff5f5;
+    border-radius: 13px;
+    padding: 16px;
+    margin: 10px 16px;
+    width: calc(100% - 32px);
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(205, 155, 155, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: pan-y;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.card h3 {
+    margin: 0;
+    color: #000;
+    font-weight: 500;
+}
+
+/* 删除按钮样式 */
+.card .delete-button {
+    position: absolute;
+    top: 0;
+    right: -70px;
+    background: #ff3b30;
+    color: white;
+    border: none;
+    height: 100%;
+    width: 70px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 2;
+}
+
+/* 模态框样式 */
+.modal-content {
+    background-color: #fff5f5;
+    padding: 20px;
+    border-radius: 13px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 输入框样式 */
+.modal-content input, 
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: rgba(118, 118, 128, 0.12);
+    color: #000;
+    font-size: 16px;
+}
+
+/* 按钮样式 */
+button {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 16px auto;
+    padding: 14px;
+    background-color: #007aff;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+button:active {
+    background-color: #0051a8;
+}
+
+/* 配料页面样式 */
+.ingredient-item {
+    background-color: #fff5f5;
+    margin: 8px 16px;
+    padding: 16px;
+    border-radius: 13px;
+    box-shadow: 0 2px 8px rgba(205, 155, 155, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredient-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    flex: 2;
+}
+
+.ingredient-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.ingredient-quantity {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e88d67;
+}
+
+.ingredient-unit {
+    font-size: 14px;
+    color: #8e8e93;
+}
+
+/* 配料页面标题样式 */
+#ingredient-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* 返回按钮样式 */
+#back-to-menu {
+    background-color: #e88d67;
+}
+
+/* 添加动画过渡 */
+.card, .modal-content, button {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+/* 主要内容区域样式 */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 鸡尾酒列表容器 */
+#cocktail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 模态框基础样式 */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal.hidden {
+    display: none;
+}
+
+/* 卡片滑动删除相关样式 */
+.card.show-delete .delete-button {
+    right: 0;
+}
+
+.card.show-delete {
+    transform: translateX(-70px);
+}
+
+/* 配料页面基础样式 */
+#ingredient-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffeee4;
+    z-index: 200;
+}
+
+#ingredient-page.hidden {
+    display: none;
+}
+
+/* 添加按钮样式 */
+#add-cocktail {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: #e88d67;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 99;
+}
+
+#add-cocktail:active {
+    transform: scale(0.95);
+    background-color: #d17d5d;
+}
+
+.ingredient-inputs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.ingredient-inputs input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(205, 155, 155, 0.3);
+    background-color: rgba(255, 228, 225, 0.3);
+}
+
+.ingredient-inputs .ingredient-name {
+    flex: 2;
+}
+
+.ingredient-inputs .ingredient-quantity,
+.ingredient-inputs .ingredient-unit {
+    flex: 1;
+}
+
+.remove-ingredient {
+    width: 32px !important;
+    height: 32px;
+    padding: 0 !important;
+    border-radius: 16px !important;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-ingredient {
+    width: 100%;
+    background-color: #e88d67;
+    margin-top: 16px;
+}
+
+#ingredients-container h3 {
+    margin: 16px 0 8px 0;
+    color: #4a3f3f;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #3f2e2e;
+        color: #fff5f5;
+    }
+    
+    header {
+        background-color: rgba(63, 46, 46, 0.92);
+    }
+    
+    header h1 {
+        color: #fff;
+    }
+    
+    #search-bar {
+        background-color: rgba(118, 118, 128, 0.24);
+        color: #fff;
+    }
+    
+    .card {
+        background-color: #4a3636;
+    }
+    
+    .card h3 {
+        color: #fff;
+    }
+    
+    .modal-content {
+        background-color: #4a3636;
+    }
+    
+    .modal-content input, 
+    .modal-content textarea {
+        background-color: rgba(118, 118, 128, 0.24);
+        color: #fff;
+    }
+    
+    .ingredient-item {
+        background-color: #4a3636;
+    }
+    
+    .ingredient-name {
+        color: #fff;
+    }
+    
+    #ingredient-title {
+        color: #fff;
+    }
+    
+    #ingredient-page {
+        background-color: #3f2e2e;
+    }
+    
+    #add-cocktail {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>酒韵小站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>酒韵小站</h1>
+        <input type="text" id="search-bar" placeholder="搜索鸡尾酒...">
+    </header>
+    <main id="main-content">
+        <section id="cocktail-list">
+            <!-- 酒单卡片会动态插入这里 -->
+        </section>
+        <button id="add-cocktail">+</button>
+    </main>
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <h2>添加自定义酒方</h2>
+            <label for="cocktail-name">鸡尾酒名称:</label>
+            <input type="text" id="cocktail-name" placeholder="例如：莫吉托">
+            
+            <div id="ingredients-container">
+                <h3>配料清单</h3>
+                <div class="ingredient-inputs">
+                    <input type="text" class="ingredient-name" placeholder="配料名称">
+                    <input type="text" class="ingredient-quantity" placeholder="用量">
+                    <input type="text" class="ingredient-unit" placeholder="单位">
+                    <button type="button" class="remove-ingredient">×</button>
+                </div>
+            </div>
+            
+            <button type="button" id="add-ingredient">+ 添加配料</button>
+            <button id="save-cocktail">保存</button>
+            <button id="cancel">取消</button>
+        </div>
+    </div>
+    <div id="ingredient-page" class="hidden">
+        <header>
+            <h1 id="ingredient-title"></h1>
+        </header>
+        <main>
+            <section id="ingredient-list">
+                <!-- 配料列表动态生成 -->
+            </section>
+            <button id="back-to-menu">返回菜单</button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
